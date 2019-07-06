@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a53afcf7-3980-4556-bd0d-6fcc74bbd233" name="Default Changelist" comment="Renamed classes to EntryPoint">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dionysus.Server/Dionysus.Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Server/Dionysus.Server.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dionysus.Shared/Dionysus.Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Shared/Dionysus.Shared.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dionysus.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.sln" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,19 +15,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-              <folding>
-                <marker date="1562445068720" expanded="true" signature="6:35" ph="..." />
-                <marker date="1562445068720" expanded="true" signature="62:382" ph="{...}" />
-                <marker date="1562445068720" expanded="true" signature="105:380" ph="{...}" />
-                <marker date="1562445068720" expanded="true" signature="139:248" ph="{...}" />
-                <marker date="1562445068720" expanded="true" signature="301:374" ph="{...}" />
-              </folding>
+            <state relative-caret-position="81">
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -41,12 +31,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/c7/5c6057d3/BaseScript.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/2f/9105f11a/EventHandlerDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dionysus.Server/packages.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/b2/a4744617/EventHandlerEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dionysus.Client/packages.config" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -55,9 +44,9 @@
         <option value="$PROJECT_DIR$/Dionysus.Shared/Class1.cs" />
         <option value="$PROJECT_DIR$/Dionysus.Server/Class1.cs" />
         <option value="$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" />
         <option value="$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -69,11 +58,26 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="SolutionExplorer" proportions="" version="1">
+    <navigator currentView="FileSystemExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="161ac34:FileSystemExplorerRootNode" />
+              <item name="Dionysus" type="34e6ba20:FileSystemExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="161ac34:FileSystemExplorerRootNode" />
+              <item name="Dionysus" type="34e6ba20:FileSystemExplorerNode" />
+              <item name="Dionysus.Client" type="34e6ba20:FileSystemExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -81,12 +85,22 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Dionysus" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Dionysus" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Dionysus.Client" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Dionysus" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Dionysus.Server" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -95,7 +109,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="RiderNuGetOptionsPageId" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -121,6 +135,7 @@
       <updated>1562429435098</updated>
       <workItem from="1562429440746" duration="1207000" />
       <workItem from="1562433134985" duration="7048000" />
+      <workItem from="1562446841385" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="Added references and now builds">
       <created>1562434555646</created>
@@ -147,7 +162,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8255000" />
+    <option name="totallyTimeSpent" value="8804000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -159,13 +174,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="-2" width="1920" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25307652" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25751072" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" sideWeight="0.49919742" visible="true" weight="0.3297062" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -173,14 +187,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297062" />
-      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3297062" />
+      <window_info anchor="bottom" id="NuGet" order="7" sideWeight="0.49946353" weight="0.48970252" />
       <window_info anchor="bottom" id="Performance Profiler" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49946353" weight="0.32861805" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5008026" side_tool="true" weight="0.3297062" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5005365" side_tool="true" weight="0.32951945" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" sideWeight="0.49919742" visible="true" weight="0.3297062" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -192,7 +207,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added references and now builds" />
@@ -229,13 +244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -247,38 +255,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/b2/a4744617/EventHandlerEntry.cs">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/b2/a4744617/EventHandlerEntry.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/2f/9105f11a/EventHandlerDictionary.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/c7/5c6057d3/BaseScript.cs" />
+    <entry file="file://$PROJECT_DIR$/Dionysus.Server/packages.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/2f/9105f11a/EventHandlerDictionary.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/c7/5c6057d3/BaseScript.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="81">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="27">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding>
-            <marker date="1562445068720" expanded="true" signature="6:35" ph="..." />
-            <marker date="1562445068720" expanded="true" signature="62:382" ph="{...}" />
-            <marker date="1562445068720" expanded="true" signature="105:380" ph="{...}" />
-            <marker date="1562445068720" expanded="true" signature="139:248" ph="{...}" />
-            <marker date="1562445068720" expanded="true" signature="301:374" ph="{...}" />
+            <marker date="1562446592897" expanded="true" signature="6:35" ph="..." />
+            <marker date="1562446592897" expanded="true" signature="62:382" ph="{...}" />
+            <marker date="1562446592897" expanded="true" signature="105:380" ph="{...}" />
+            <marker date="1562446592897" expanded="true" signature="139:248" ph="{...}" />
+            <marker date="1562446592897" expanded="true" signature="301:374" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>

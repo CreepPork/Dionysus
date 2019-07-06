@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Uldis\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Uldis\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Dionysus.2033891820.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Uldis\Desktop\FiveM\server-data\resources\Dionysus" t="ExcludeRecursive" />
-    <e p="C:\Users\Uldis\Documents\RiderProjects\Dionysus" t="IncludeFlat">
+    <e p="$USER_HOME$/.Rider2019.1/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_Dionysus.572487646.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Dionysus.Client" t="IncludeRecursive">
         <e p="Dionysus.Client.csproj" t="IncludeRecursive" />
         <e p="EntryPoint.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
       </e>
       <e p="Dionysus.Server" t="IncludeRecursive">
         <e p="Dionysus.Server.csproj" t="IncludeRecursive" />
         <e p="EntryPoint.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
       </e>
       <e p="Dionysus.Shared" t="IncludeRecursive">
         <e p="Dionysus.Shared.csproj" t="IncludeRecursive" />
         <e p="EntryPoint.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="Dionysus.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Uldis\Desktop\FiveM\server-data\resources\dionysus" t="ExcludeRecursive" />
   </component>
 </project>

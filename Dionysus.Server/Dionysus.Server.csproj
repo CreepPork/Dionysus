@@ -61,7 +61,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CitizenFX.Core.Server, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CitizenFX.Core.Server.1.0.1383\lib\net45\CitizenFX.Core.Server.dll</HintPath>
+      <HintPath>../packages/CitizenFX.Core.Server.1.0.1383/lib/net45/CitizenFX.Core.Server.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

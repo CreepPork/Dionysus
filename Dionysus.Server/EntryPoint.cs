@@ -1,6 +1,8 @@
-﻿namespace Dionysus.Server
+﻿using CitizenFX.Core;
+
+namespace Dionysus.Server
 {
-    public class EntryPoint
+    public class EntryPoint : BaseScript
     {
     }
 }

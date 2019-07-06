@@ -1,6 +1,6 @@
 ﻿namespace Dionysus.Server
 {
-    public class Class1
+    public class EntryPoint
     {
     }
 }

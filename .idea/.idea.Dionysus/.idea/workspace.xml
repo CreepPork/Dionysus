@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a53afcf7-3980-4556-bd0d-6fcc74bbd233" name="Default Changelist" comment="Renamed classes to EntryPoint">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a53afcf7-3980-4556-bd0d-6fcc74bbd233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dionysus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Client/Main.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dionysus.Server/Dionysus.Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Server/Dionysus.Server.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Server/Main.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dionysus.Shared/Dionysus.Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.Shared/Dionysus.Shared.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dionysus.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Dionysus.sln" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,25 +20,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dionysus.Client/Main.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="108">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="49" />
+              <folding>
+                <marker date="1562447475190" expanded="false" signature="6:35" ph="..." />
+                <marker date="1562447475190" expanded="true" signature="62:420" ph="{...}" />
+                <marker date="1562447475190" expanded="true" signature="149:418" ph="{...}" />
+                <marker date="1562447475190" expanded="true" signature="177:286" ph="{...}" />
+                <marker date="1562447475190" expanded="true" signature="339:412" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dionysus.Server/Main.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <folding>
+                <marker date="1562447477818" expanded="true" signature="48:149" ph="{...}" />
+                <marker date="1562447477818" expanded="true" signature="135:147" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>debug rela</find>
+      <find>Debug</find>
+      <find>bin\Debug Relative</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Dionysus.Server/packages.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dionysus.Server/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dionysus.Client/Main.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dionysus.Client/packages.config" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -47,6 +77,11 @@
         <option value="$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs" />
         <option value="$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj" />
+        <option value="$PROJECT_DIR$/Dionysus.Shared/Dionysus.Shared.csproj" />
+        <option value="$PROJECT_DIR$/Dionysus.Server/Dionysus.Server.csproj" />
+        <option value="$PROJECT_DIR$/Dionysus.Client/Main.cs" />
+        <option value="$PROJECT_DIR$/Dionysus.Server/Main.cs" />
       </list>
     </option>
   </component>
@@ -58,7 +93,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="FileSystemExplorer" proportions="" version="1">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -94,6 +129,11 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Dionysus" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Dionysus.Server" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Dionysus" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Dionysus.Shared" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -135,7 +175,7 @@
       <updated>1562429435098</updated>
       <workItem from="1562429440746" duration="1207000" />
       <workItem from="1562433134985" duration="7048000" />
-      <workItem from="1562446841385" duration="390000" />
+      <workItem from="1562446841385" duration="634000" />
     </task>
     <task id="LOCAL-00001" summary="Added references and now builds">
       <created>1562434555646</created>
@@ -158,11 +198,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562435025973</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added missing packages from source control">
+      <created>1562447269755</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1562447269755</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8804000" />
+    <option name="totallyTimeSpent" value="9048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -212,7 +259,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added references and now builds" />
     <MESSAGE value="Renamed classes to EntryPoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed classes to EntryPoint" />
+    <MESSAGE value="Added missing packages from source control" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added missing packages from source control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,35 +274,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Dionysus/Class1.cs" />
-    <entry file="file://$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding>
-            <marker date="1562434628330" expanded="true" signature="25:69" ph="{...}" />
-            <marker date="1562434628330" expanded="true" signature="55:67" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dionysus.Server/EntryPoint.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-          <folding>
-            <marker date="1562436186332" expanded="true" signature="48:105" ph="{...}" />
-            <marker date="1562436186332" expanded="true" signature="91:103" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/b2/a4744617/EventHandlerEntry.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/2f/9105f11a/EventHandlerDictionary.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19A921D8-4793-43B0-A059-FEAA44630541/c7/5c6057d3/BaseScript.cs" />
@@ -265,24 +284,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dionysus.Client/EntryPoint.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding>
-            <marker date="1562446592897" expanded="true" signature="6:35" ph="..." />
-            <marker date="1562446592897" expanded="true" signature="62:382" ph="{...}" />
-            <marker date="1562446592897" expanded="true" signature="105:380" ph="{...}" />
-            <marker date="1562446592897" expanded="true" signature="139:248" ph="{...}" />
-            <marker date="1562446592897" expanded="true" signature="301:374" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dionysus.Client/Dionysus.Client.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dionysus.Client/packages.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dionysus.Shared/EntryPoint.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dionysus.Client/Main.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="49" />
+          <folding>
+            <marker date="1562447475190" expanded="false" signature="6:35" ph="..." />
+            <marker date="1562447475190" expanded="true" signature="62:420" ph="{...}" />
+            <marker date="1562447475190" expanded="true" signature="149:418" ph="{...}" />
+            <marker date="1562447475190" expanded="true" signature="177:286" ph="{...}" />
+            <marker date="1562447475190" expanded="true" signature="339:412" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dionysus.Server/Main.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding>
+            <marker date="1562447477818" expanded="true" signature="48:149" ph="{...}" />
+            <marker date="1562447477818" expanded="true" signature="135:147" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -6,33 +6,34 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Dionysus.Client" t="IncludeRecursive">
         <e p="Dionysus.Client.csproj" t="IncludeRecursive" />
-        <e p="EntryPoint.cs" t="Include" />
+        <e p="Main.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
       </e>
       <e p="Dionysus.Server" t="IncludeRecursive">
         <e p="Dionysus.Server.csproj" t="IncludeRecursive" />
-        <e p="EntryPoint.cs" t="Include" />
+        <e p="Main.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
       </e>
       <e p="Dionysus.Shared" t="IncludeRecursive">
         <e p="Dionysus.Shared.csproj" t="IncludeRecursive" />
-        <e p="EntryPoint.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="Dionysus.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\Uldis\Desktop\FiveM\server-data\resources\dionysus" t="ExcludeRecursive" />
   </component>
 </project>

@@ -3,9 +3,10 @@ using CitizenFX.Core;
 
 namespace Dionysus.Client
 {
-    public class EntryPoint : BaseScript
+    // ReSharper disable once UnusedMember.Global
+    public class Main : BaseScript
     {
-        public EntryPoint()
+        public Main()
         {
             EventHandlers["onClientResourceStart"] += new Action(OnClientResourceStart);
         }

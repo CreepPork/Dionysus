@@ -10,10 +10,12 @@ namespace Dionysus.Server {
         // ReSharper disable once EmptyConstructor | Required for JSON
         public Settings() { }
 
-        public Settings(string bearerToken) {
+        public Settings(string hostUrl, string bearerToken) {
+            HostUrl = hostUrl;
             BearerToken = bearerToken;
         }
 
+        public string HostUrl { get; set; }
         public string BearerToken { get; set; }
 
         private static string GetPath() {
@@ -25,7 +27,7 @@ namespace Dionysus.Server {
         }
 
         private static void Initialize() {
-            Settings settings = new Settings {BearerToken = ""};
+            Settings settings = new Settings {BearerToken = "", HostUrl = ""};
             settings.Save();
         }
 

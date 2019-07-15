@@ -1,10 +1,11 @@
 language: node_js
+
 node_js:
-  - "12"
+- '12'
+
 cache: npm
 
 before_script:
-- npm i
 - npm i codecov -g
 - npm run build
 
@@ -14,9 +15,10 @@ script:
 
 notifications:
   email: false
-  notifications:
-    slack: amitum:wNVxxxvZmHVaX8qI28xzrXlU
+  slack:
+    rooms:
+      - secure: pTfYvrf1yJWIsQGdweyefjTh+3VSlfgsQ/mNI4+hFVwCq1oo1/aoQ4E2iAf8QvXO6esl1AUgFSg32EPp/qA7eSasT6pN8aKI8BGBr3a/b4wSm2rwgrLGoLZI8BULUMlhPGzIq2GyRmWOyzJhapNoDB2wCFtxoD0dZgqyj0dmYIicENiqqTDDFxKiwJ5q7JztHdsQEzRIn7TpjPIEFeFF59B/ktGr31YSmzQKPS/N3PMzOWY8M7TgUU3GlV3KLwZ3HaLx0SJ/Jg+hUXxYaqClexkQIhSD1yQLLcZ3+qjH/Q4HHtvzZMMv+MxkuvO+fAuKm14XVkownkOj2v2YXw1ufWjqvirkWjOkJKhparX2FT3pfnB2Kw56SJgVdgXAmbOiV8ZDWsgiUNWa183ICFMQZ8/aYPfhVReOJbUpMCP6TdEDvB9Nud5j8qR9oM1xsq7bsj7MHmIXkuw+A4kUbSZ3bNikyix/JIcE8hyaQaa8Pl8BROEvZS6bxIPuHNGo4kCAmAWjXZ/pnEVoo0rXeG5R7QqQ06tiyvKv5F/QDxOS3AH52TH1C7jzsG03V5Qih/qDifr8jCvPNCA8dac3QLAzajFvv91WaUrqSKxtk3LSK38ut8oRzKvrXnoI27P0FdfzIPcmh+Xql98VxixQEYdlLZXzgI4Q9so9JKt8UUCO3Z8=
     on_success: change
 
 after_success:
-  - codecov
+- codecov

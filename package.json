@@ -5,7 +5,7 @@
   "description": "A complete solution to role-play servers for FiveM.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "tslint -c tslint.json -t stylish 'src/**/*.ts'",
     "test": "jest",
     "watch": "npm run build -- --watch"
   },

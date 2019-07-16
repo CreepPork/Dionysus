@@ -1,7 +1,9 @@
 {
     "extends": "../../tsconfig.json",
     "include": [
-        "../../src/**/*",
+        "../../src/@types/**/*",
+        "../../src/server/**/*",
+        "../../src/shared/**/*",
         "../../node_modules/@citizenfx/server/**/*",
         "../../node_modules/@citizenfx/server/natives_server.d.ts",
         "../../node_modules/@citizenfx/server/index.d.ts"

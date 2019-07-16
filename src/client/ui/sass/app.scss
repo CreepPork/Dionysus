@@ -1,0 +1,57 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.action-link {
+    cursor: pointer;
+}
+
+.nav-tabs {
+    .active {
+        cursor: default;
+    }
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.alert {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(76,175,80,.4);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    position: relative;
+    padding: 20px 15px;
+    line-height: 20px;
+    background-color: unset;
+}
+
+.alert-success {
+    background: linear-gradient(60deg,#288c6c,#4ea752);
+}
+
+.alert-info {
+    background: linear-gradient(60deg,#029eb1,#25b1c3);
+}
+
+.alert-warning {
+    background: linear-gradient(60deg,#f5700c,#ff9800);
+}
+
+.alert-primary {
+    background: linear-gradient(60deg,#007BFF,rgb(0, 153, 255));
+}
+
+.alert-danger {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+    background: linear-gradient(60deg,#d22824,#da3a36);
+}

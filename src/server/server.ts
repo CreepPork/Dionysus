@@ -1,4 +1,3 @@
-import DateFormat from '../shared/dateFormat';
 import Player, { EPlayerIdentifier } from '../shared/player/player';
 
 import axios from 'axios';
@@ -27,7 +26,7 @@ class Server {
 
             if (! await Player.isCreated(steamId)) {
                 await Player.create({
-                    born_at: DateFormat.format(new Date()),
+                    born_at: '2019-07-17',
                     first_name: 'First',
                     last_name: 'Last',
                     money_bank: 0,

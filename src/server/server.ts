@@ -14,6 +14,8 @@ class Server {
         }
 
         onNet('dionysus:onPlayerSpawned_handlePlayerSpawn', this.onHandlePlayerSpawn);
+
+        on('playerDropped', this.onPlayerDropped);
     }
 
     private async onHandlePlayerSpawn() {
@@ -36,6 +38,10 @@ class Server {
                 });
             }
         });
+    }
+
+    private onPlayerDropped(reason: string) {
+        console.log(`Disconnected: ${GetPlayerName(global.source)}, reason: ${reason}`);
     }
 }
 

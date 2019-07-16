@@ -2,6 +2,7 @@ export {};
 
 declare global {
     export namespace NodeJS {
+        // tslint:disable-next-line: interface-name
         interface Global {
             /**
              * Player ID for player which triggered an event.

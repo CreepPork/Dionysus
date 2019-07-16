@@ -2,6 +2,8 @@
     "extends": "../../tsconfig.json",
     "include": [
         "../../src/**/*",
-        "../../node_modules/@citizenfx/client/index.d.ts"
+        "../../node_modules/@citizenfx/server/**/*",
+        "../../node_modules/@citizenfx/server/natives_universal.d.ts",
+        "../../node_modules/@citizenfx/server/index.d.ts"
     ]
 }

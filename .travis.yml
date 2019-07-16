@@ -7,7 +7,7 @@ cache: npm
 
 before_script:
 - npm i codecov -g
-- npm run build
+- npm run dev
 
 script:
 - npm run lint

@@ -5,5 +5,5 @@ mix.options({
 });
 
 mix.ts('src/client/client.ts', 'dist/client/client.js')
-    .ts('src/server/server.ts', 'dist/server/server.ts')
+    .ts('src/server/server.ts', 'dist/server/server.js')
     .setPublicPath('dist');

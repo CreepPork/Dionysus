@@ -1,4 +1,11 @@
 const mix = require('laravel-mix');
+const dotenv = require('dotenv-webpack');
+
+mix.webpackConfig({
+    plugins: [
+        new dotenv(),
+    ],
+});
 
 mix.options({
     processCssUrls: false

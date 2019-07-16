@@ -16,8 +16,6 @@
         }
     },
     "include": [
-        "src/**/*",
-        "node_modules/@citizenfx/server/*",
-        "node_modules/@citizenfx/client/*"
+        "src/**/*"
     ]
 }

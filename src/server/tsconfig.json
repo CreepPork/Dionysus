@@ -1,0 +1,7 @@
+{
+    "extends": "../../tsconfig.json",
+    "include": [
+        "../../src/**/*",
+        "../../node_modules/@citizenfx/server/index.d.ts"
+    ]
+}

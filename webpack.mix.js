@@ -4,9 +4,6 @@ const path = require('path');
 
 mix.webpackConfig({
     target: 'node',
-    plugins: [
-        new dotenv(),
-    ],
     module: {
         rules: [
             {
@@ -41,22 +38,11 @@ mix.webpackConfig({
                     },
                 ]
             },
-            {
-                test: /\.vue$/,
-                use: [
-                    {
-                        loader: 'vue-loader',
-                        options: {},
-                    }
-                ],
-            },
         ]
     },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-        }
-    }
+    plugins: [
+        new dotenv(),
+    ],
 });
 
 mix.options({

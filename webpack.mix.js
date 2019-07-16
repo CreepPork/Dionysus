@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 const dotenv = require('dotenv-webpack');
 
 mix.webpackConfig({
+    target: 'node',
     plugins: [
         new dotenv(),
     ],

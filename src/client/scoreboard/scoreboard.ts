@@ -1,6 +1,6 @@
 import * as Cfx from 'fivem-js';
 import delay from '../../shared/delay';
-import Scaleform from '../../shared/scaleform';
+import Scaleform from '../scaleform';
 
 export default class Scoreboard {
     private maxClients: number = parseInt(GetConvar('sv_maxClients', '32'), 10);

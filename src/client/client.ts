@@ -1,7 +1,13 @@
+import Commands from './commands/commands';
+
 class Client {
     constructor() {
         on('onClientResourceStart', this.onClientResourceStart);
         on('playerSpawned', this.onPlayerSpawned);
+
+        if (process.env.NODE_ENV === 'development') {
+            Commands.Register();
+        }
     }
 
     private onClientResourceStart(resourceName: string) {

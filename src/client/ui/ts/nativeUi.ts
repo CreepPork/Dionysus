@@ -2,6 +2,7 @@ export default class NativeUi {
     private isDisplayed = false;
 
     constructor() {
+        // Called via arrow function to keep this in the class
         on('dionysus:nativeUi_toggleDisplay', () => this.toggleDisplay());
         on('onClientResourceStart', this.onClientResourceStart);
     }
@@ -14,6 +15,9 @@ export default class NativeUi {
                 isDisplayed: this.isDisplayed,
                 type: 'dionysus:nativeUi_displayType',
             }));
+
+            // Seems to crash the game if user interacts with content
+            // SetNuiFocus(this.isDisplayed, this.isDisplayed);
         });
     }
 

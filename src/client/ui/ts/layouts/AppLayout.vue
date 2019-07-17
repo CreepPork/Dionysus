@@ -1,10 +1,12 @@
 <template>
     <transition>
-        <div class="wrapper" v-show="isDisplayed">
-            <div class="content">
-                <keep-alive>
-                    <router-view></router-view>
-                </keep-alive>
+        <div v-show="isDisplayed">
+            <div class="container">
+                <div class="row">
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </div>
             </div>
         </div>
     </transition>

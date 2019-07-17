@@ -1,9 +1,14 @@
-import Commands from './commands/commands';
+import Commands from './commands';
+import DeathManager from './deathManager';
 
 class Client {
     constructor() {
         on('onClientResourceStart', this.onClientResourceStart);
         on('playerSpawned', this.onPlayerSpawned);
+
+        on('baseevents:onPlayerKilled', this.onPlayerWasted);
+        on('baseevents:onPlayerDied', this.onPlayerWasted);
+        on('baseevents:onPlayerWasted', this.onPlayerWasted);
 
         if (process.env.NODE_ENV === 'development') {
             Commands.Register();
@@ -18,6 +23,10 @@ class Client {
 
     private onPlayerSpawned() {
         emitNet('dionysus:onPlayerSpawned_handlePlayerSpawn');
+    }
+
+    private onPlayerWasted() {
+        DeathManager.died();
     }
 }
 

@@ -1,17 +1,17 @@
 import * as Cfx from 'fivem-js';
 import delay from '../../shared/delay';
+import Scaleform from '../../shared/scaleform';
 
 export default class Scoreboard {
     private maxClients: number = parseInt(GetConvar('sv_maxClients', '32'), 10);
 
-    private ui?: Cfx.Scaleform;
+    private ui?: Scaleform;
     private uiInitalized = false;
     private uiRows: IScoreboardRow[] = [];
     private uiPage = 0;
     private uiIsVisible = false;
 
-    private safezone = GetSafeZoneSize(); // 0.9699
-    private change = (this.safezone - 0.89) / 0.11;
+    private change = (GetSafeZoneSize() - 0.89) / 0.11;
 
     private x = 50 - this.change * 78;
     private y = 50 - this.change * 50;
@@ -52,8 +52,8 @@ export default class Scoreboard {
             if (this.ui) {
                 if (this.ui.IsLoaded) {
                     this.ui.render2DScreenSpace(
-                        new Cfx.PointF(-6.65, 13.68, 0),
-                        new Cfx.PointF(400, 490, 0),
+                        new Cfx.PointF(this.x, this.y, 0),
+                        new Cfx.PointF(this.width, this.height, 0),
                     );
                 }
             }
@@ -92,8 +92,8 @@ export default class Scoreboard {
         GetActivePlayers().forEach(async (id: number) => {
             const config: IScoreboardRow = {
                 color: 111,
-                crew: 'CREW',
-                friendType: '',
+                crew: '   CREW',
+                friendType: ' ',
                 jobPoints: 3,
                 jobPointsDisplayType: EScoreboardDisplayType.Icon,
                 mugshot: await this.getMugshot(id),
@@ -136,7 +136,7 @@ export default class Scoreboard {
             this.ui = undefined;
         }
 
-        this.ui = new Cfx.Scaleform('MP_MM_CARD_FREEMODE');
+        this.ui = new Scaleform('MP_MM_CARD_FREEMODE');
 
         while (this.ui.IsLoaded === false) {
             await delay(1);

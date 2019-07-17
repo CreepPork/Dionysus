@@ -10,6 +10,7 @@ export default class Scoreboard {
     private uiRows: IScoreboardRow[] = [];
     private uiPage = 0;
     private uiIsVisible = false;
+    private uiMugshotCache: string[] = [];
 
     private change = (GetSafeZoneSize() - 0.89) / 0.11;
 
@@ -21,6 +22,8 @@ export default class Scoreboard {
     constructor() {
         setTick(() => this.controller());
         setTick(() => this.draw());
+
+        setTick(() => this.updateMugshots());
     }
 
     private async controller() {
@@ -61,13 +64,21 @@ export default class Scoreboard {
     }
 
     private async getMugshot(handle: number): Promise<string> {
-        const mugshotHandle = RegisterPedheadshot(handle);
+        const mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
 
-        while (! IsPedheadshotReady(mugshotHandle)) {
-            await delay(50);
+        while (! IsPedheadshotReady(mugshotHandle) || ! IsPedheadshotValid(mugshotHandle)) {
+            await delay(1);
         }
 
         return GetPedheadshotTxdString(mugshotHandle) || '';
+    }
+
+    private async updateMugshots() {
+        GetActivePlayers().forEach(async (id: number) => {
+            this.uiMugshotCache[id] = await this.getMugshot(id);
+        });
+
+        await delay(1000);
     }
 
     private cleanMugshots() {
@@ -92,11 +103,11 @@ export default class Scoreboard {
         GetActivePlayers().forEach(async (id: number) => {
             const config: IScoreboardRow = {
                 color: 111,
-                crew: '   CREW',
-                friendType: ' ',
+                crew: this.getCrew('crew'),
+                friendType: '',
                 jobPoints: 3,
                 jobPointsDisplayType: EScoreboardDisplayType.Icon,
-                mugshot: await this.getMugshot(id),
+                mugshot: this.uiMugshotCache[id] || '',
                 mugshotOverlayText: '',
                 name: GetPlayerName(id),
                 rank: GetPlayerServerId(id),
@@ -106,7 +117,7 @@ export default class Scoreboard {
             this.uiRows.push(config);
         });
 
-        this.clearUi();
+        await this.clearUi();
 
         for (const [i, row] of this.uiRows.entries()) {
             if (this.ui) {
@@ -151,6 +162,11 @@ export default class Scoreboard {
         await this.updateUi();
 
         this.ui.callFunction('DISPLAY_VIEW', []);
+    }
+
+    private getCrew(crew: string): string {
+        // It requires 3 characters to display the actual value
+        return `   ${crew}`;
     }
 }
 

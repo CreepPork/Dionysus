@@ -15,6 +15,7 @@ class Server {
         onNet('dionysus:onPlayerSpawned_handlePlayerSpawn', this.onHandlePlayerSpawn);
 
         on('playerDropped', this.onPlayerDropped);
+        on('onResourceStart', this.onResourceStart);
     }
 
     private async onHandlePlayerSpawn() {
@@ -41,6 +42,12 @@ class Server {
 
     private onPlayerDropped(reason: string) {
         console.log(`Disconnected: ${GetPlayerName(global.source)}, reason: ${reason}`);
+    }
+
+    private onResourceStart(resourceName: string) {
+        if (GetCurrentResourceName() !== resourceName) { return; }
+
+        SetConvarReplicated('sv_maxClients', GetConvar('sv_maxClients', '32'));
     }
 }
 

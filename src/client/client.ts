@@ -1,5 +1,6 @@
 import Commands from './commands';
 import DeathManager from './deathManager';
+import Scoreboard from './scoreboard/scoreboard';
 
 class Client {
     constructor() {
@@ -17,6 +18,9 @@ class Client {
 
     private onClientResourceStart(resourceName: string) {
         if (GetCurrentResourceName() !== resourceName) { return; }
+
+        // tslint:disable-next-line: no-unused-expression
+        new Scoreboard();
 
         console.log('Dionysus: Client Resource Started.');
     }

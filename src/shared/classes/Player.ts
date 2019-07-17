@@ -2,7 +2,8 @@ import axios from 'axios';
 
 import * as _ from 'lodash';
 
-import IPlayer, { IPlayerCreate } from './interfaces';
+import IPlayer from '../interfaces/IPlayer';
+import IPlayerCreate from '../interfaces/IPlayerCreate';
 
 export default class Player {
     public static isCreated(steamId: number): Promise<boolean> {
@@ -28,14 +29,4 @@ export default class Player {
     public static getSteamId(steamHex: string): number {
         return parseInt(steamHex.split(':')[1], 16);
     }
-}
-
-// tslint:disable: comment-format
-export enum EPlayerIdentifier {
-    steamHex, // steam:<hex>
-    license, // license:<string>
-    discord, // discord:<snowflake>
-    fivem, // fivem:<number>
-    xboxLive,
-    live,
 }

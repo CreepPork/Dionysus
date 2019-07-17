@@ -2,8 +2,8 @@ dependency 'baseevents'
 dependency 'spawnmanager'
 
 -- Main entry point
-client_script 'dist/client/client.js'
-server_script 'dist/server/server.js'
+client_script 'dist/client/Client.js'
+server_script 'dist/server/Server.js'
 
 -- NativeUI
 files {
@@ -12,7 +12,7 @@ files {
     'dist/client/ui/css/app.css'
 }
 
-client_script 'dist/client/ui/js/nativeUi.js'
+client_script 'dist/client/ui/js/NativeUI.js'
 
 ui_page 'dist/client/ui/html/index.html'
 

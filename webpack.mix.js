@@ -10,9 +10,9 @@ mix.webpackConfig({
             {
                 test: /\.tsx?$/,
                 include: [
-                    path.resolve(__dirname, 'src/client/client.ts'),
-                    path.resolve(__dirname, 'src/client/ui/app.ts'),
-                    path.resolve(__dirname, 'src/client/ui/nativeUi.ts'),
+                    path.resolve(__dirname, 'src/client/Client.ts'),
+                    path.resolve(__dirname, 'src/client/ui/App.ts'),
+                    path.resolve(__dirname, 'src/client/ui/NativeUI.ts'),
                 ],
                 use: [
                     {
@@ -27,7 +27,7 @@ mix.webpackConfig({
             {
                 test: /\.tsx?$/,
                 include: [
-                    path.resolve(__dirname, 'src/server/server.ts'),
+                    path.resolve(__dirname, 'src/server/Server.ts'),
                 ],
                 use: [
                     {
@@ -50,10 +50,10 @@ mix.options({
     processCssUrls: false
 });
 
-mix.ts('src/client/client.ts', 'dist/client/client.js')
-    .ts('src/server/server.ts', 'dist/server/server.js')
-    .ts('src/client/ui/ts/app.ts', 'dist/client/ui/js/app.js')
-    .ts('src/client/ui/ts/nativeUi.ts', 'dist/client/ui/js/nativeUi.js')
+mix.ts('src/client/Client.ts', 'dist/client/Client.js')
+    .ts('src/server/Server.ts', 'dist/server/Server.js')
+    .ts('src/client/ui/ts/App.ts', 'dist/client/ui/js/App.js')
+    .ts('src/client/ui/ts/NativeUI.ts', 'dist/client/ui/js/NativeUI.js')
     .sass('src/client/ui/sass/app.scss', 'dist/client/ui/css/app.css')
     .copy('src/client/ui/html', 'dist/client/ui/html', false)
     .setPublicPath('dist');

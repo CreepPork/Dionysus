@@ -1,4 +1,5 @@
-import Player, { EPlayerIdentifier } from '../shared/player/player';
+import Player from '../shared/classes/Player';
+import { EPlayerIdentifier } from '../shared/enums/EPlayerIdentifier';
 
 import axios from 'axios';
 

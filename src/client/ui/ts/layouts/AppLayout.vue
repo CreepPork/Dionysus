@@ -27,7 +27,7 @@
                 const data: { type?: string, isDisplayed: boolean } = event.data;
 
                 if (data.type) {
-                    if (data.type === 'dionysus:nativeUi_displayType') {
+                    if (data.type === 'dionysus:nativeUI_displayType') {
                         this.isDisplayed = data.isDisplayed;
                     }
                 }

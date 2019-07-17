@@ -36,11 +36,11 @@ export default class Commands {
                 if (ground[0] === 1) {
                     clearInterval(intervalId);
                 } else {
-                    height++;
+                    height += 3;
                 }
 
                 Cfx.Game.PlayerPed.Position = new Vector3(pos[0], pos[1], height);
-            }, 5);
+            }, 1);
         } else {
             emit('chat:addMessage', {
                 args: [

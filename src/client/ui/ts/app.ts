@@ -18,27 +18,21 @@ Vue.use(VueRouter);
 //     }
 // });
 
-import AppLayout from './layouts/AppLayout';
-
-Vue.component(
-    'app-layout',
-    AppLayout,
-);
+import AppLayout from './layouts/AppLayout.vue';
+import HomeView from './views/HomeView.vue';
 
 Vue.config.devtools = false;
 Vue.config.productionTip = false;
 
-// tslint:disable-next-line: no-unused-expression
 new Vue({
-    el: '#app',
-    // router: new VueRouter({
-    //     linkExactActiveClass: 'active',
-    //     // routes: [
-    //     //     {
-    //     //         component: require('./views/HomeView').default,
-    //     //         name: 'Home',
-    //     //         path: '/',
-    //     //     },
-    //     // ],
-    // }),
-});
+    render: h => h(AppLayout),
+    router: new VueRouter({
+        routes: [
+            {
+                component: HomeView,
+                name: 'home',
+                path: '/',
+            },
+        ],
+    }),
+}).$mount('#app');

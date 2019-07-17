@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 const dotenv = require('dotenv-webpack');
 const path = require('path');
+const _ = require('lodash');
 
 mix.webpackConfig({
     target: 'node',
@@ -56,3 +57,9 @@ mix.ts('src/client/client.ts', 'dist/client/client.js')
     .sass('src/client/ui/sass/app.scss', 'dist/client/ui/css/app.css')
     .copy('src/client/ui/html', 'dist/client/ui/html', false)
     .setPublicPath('dist');
+
+mix.override(config => {
+    const vueConf = _.find(config.module.rules, rule => String(rule.test) === String(/\.vue$/));
+
+    vueConf.use[0].options.optimizeSSR = false;
+});

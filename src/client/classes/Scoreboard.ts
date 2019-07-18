@@ -3,6 +3,7 @@ import { EScoreboardRankIcon } from '../enums/EScoreboardRankIcon';
 import { EScriptGfxAlignHorizontal } from '../enums/EScriptGfxAlignHorizontal';
 import { EScriptGfxAlignVertical } from '../enums/EScriptGfxAlignVertical';
 import IScoreboardRow from '../interfaces/IScoreboardRow';
+import IScoreboardRowConfig from '../interfaces/IScoreboardRowConfig';
 
 import Delay from '../../shared/utilities/Delay';
 
@@ -17,6 +18,7 @@ export default class Scoreboard {
     private uiCurrentPage = 1;
     private uiMugshotCache: string[] = [];
     private uiIsGeneratingMugshots = false;
+    private uiPlayerConfigs: IScoreboardRowConfig[] = [];
 
     private get uiMaxPages(): number {
         return Math.ceil((GetActivePlayers() as number[]).length / 16);
@@ -24,6 +26,23 @@ export default class Scoreboard {
 
     constructor() {
         setTick(() => this.controller());
+
+        on('dionysus:scoreboard_updatePlayerRow', (
+                playerId: number,
+                color?: number,
+                crew?: string,
+                isFriend?: boolean,
+                jobPoints?: number,
+                jobPointsDisplayType?: EScoreboardDisplayType,
+                mugshot?: string,
+                mugshotOverlayText?: string,
+                rank?: number,
+                rankIcon?: EScoreboardRankIcon,
+            ) => this.onUpdatePlayerRow(
+                playerId, color, crew, isFriend, jobPoints, jobPointsDisplayType,
+                mugshot, mugshotOverlayText, rank, rankIcon,
+            ),
+        );
     }
 
     private async controller() {
@@ -80,10 +99,19 @@ export default class Scoreboard {
     }
 
     private async getMugshot(handle: number): Promise<string> {
-        const mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
+        let mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
 
         while (! IsPedheadshotReady(mugshotHandle) || ! IsPedheadshotValid(mugshotHandle)) {
-            await Delay(1000);
+            await Delay(5000);
+
+            if (GetPedheadshotTxdString(mugshotHandle) !== null) {
+                break;
+            }
+
+            mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
+            if (GetPedheadshotTxdString(mugshotHandle) !== null) {
+                break;
+            }
         }
 
         return GetPedheadshotTxdString(mugshotHandle);
@@ -93,18 +121,20 @@ export default class Scoreboard {
         if (this.uiIsGeneratingMugshots) { return; }
         this.uiIsGeneratingMugshots = true;
 
-        GetActivePlayers().forEach(async (id: number) => {
-            this.uiMugshotCache[id] = await this.getMugshot(id);
+        for (const id of GetActivePlayers()) {
+            const mugshot = await this.getMugshot(id);
+            this.uiMugshotCache[id] = mugshot;
 
             // Emit event for that index to update it's mugshot
-        });
+            await this.onUpdatePlayerRow(id, undefined, undefined, undefined, undefined, undefined, mugshot);
+        }
 
         await Delay(60 * 1000);
         this.uiIsGeneratingMugshots = false;
     }
 
     private cleanMugshots() {
-        for (let i = 0; i < this.maxClients; i++) {
+        for (let i = 0; i < 150; i++) {
             UnregisterPedheadshot(i);
         }
     }
@@ -120,15 +150,14 @@ export default class Scoreboard {
     }
 
     private async updateUi() {
-        console.log(this.uiCurrentPage);
         this.clearUi();
 
         for (const [i, id] of GetActivePlayers().entries()) {
             const row: IScoreboardRow = {
                 color: 111,
-                crew: `   crew`,
-                isFriend: true,
-                jobPoints: 3,
+                crew: '',
+                isFriend: false,
+                jobPoints: 0,
                 jobPointsDisplayType: EScoreboardDisplayType.Icon,
                 mugshot: this.uiMugshotCache[id] || '',
                 mugshotOverlayText: '',
@@ -141,21 +170,38 @@ export default class Scoreboard {
             this.uiRows.push(row);
 
             if (this.ui) {
-                // Handle page switching
-                this.ui.callFunction('SET_DATA_SLOT', [
-                    i - ((this.uiCurrentPage - 1) * 16),
-                    row.rank,
-                    `${row.name}${i + 1}`,
-                    row.color,
-                    row.rankIcon,
-                    row.mugshotOverlayText,
-                    row.jobPoints,
-                    row.crew,
-                    row.jobPointsDisplayType,
-                    row.mugshot,
-                    row.mugshot,
-                    row.isFriend ? 'F' : '',
-                ]);
+                if (this.uiPlayerConfigs[id]) {
+                    this.ui.callFunction('SET_DATA_SLOT', [
+                        // This prevents undefined rows from showing
+                        i - ((this.uiCurrentPage - 1) * 16),
+                        this.uiPlayerConfigs[id].rank || row.rank,
+                        row.name,
+                        this.uiPlayerConfigs[id].color || row.color,
+                        this.uiPlayerConfigs[id].rankIcon || row.rankIcon,
+                        this.uiPlayerConfigs[id].mugshotOverlayText || row.mugshotOverlayText,
+                        this.uiPlayerConfigs[id].jobPoints || row.jobPoints,
+                        this.uiPlayerConfigs[id].crew ? `   ${this.uiPlayerConfigs[id].crew}` : row.crew,
+                        this.uiPlayerConfigs[id].jobPointsDisplayType || row.jobPointsDisplayType,
+                        this.uiPlayerConfigs[id].mugshot || row.mugshot,
+                        this.uiPlayerConfigs[id].mugshot || row.mugshot,
+                        this.uiPlayerConfigs[id].isFriend ? (this.uiPlayerConfigs[id].isFriend ? 'F' : '') : '',
+                    ]);
+                } else {
+                    this.ui.callFunction('SET_DATA_SLOT', [
+                        i - ((this.uiCurrentPage - 1) * 16),
+                        row.rank,
+                        row.name,
+                        row.color,
+                        row.rankIcon,
+                        row.mugshotOverlayText,
+                        row.jobPoints,
+                        row.crew,
+                        row.jobPointsDisplayType,
+                        row.mugshot,
+                        row.mugshot,
+                        row.isFriend ? 'F' : '',
+                    ]);
+                }
             }
         }
 
@@ -183,5 +229,32 @@ export default class Scoreboard {
                 `${this.uiCurrentPage}/${this.uiMaxPages}`,
             ]);
         }
+    }
+
+    private async onUpdatePlayerRow(
+        playerId: number,
+        color?: number,
+        crew?: string,
+        isFriend?: boolean,
+        jobPoints?: number,
+        jobPointsDisplayType?: EScoreboardDisplayType,
+        mugshot?: string,
+        mugshotOverlayText?: string,
+        rank?: number,
+        rankIcon?: EScoreboardRankIcon,
+    ) {
+        this.uiPlayerConfigs[playerId] = {
+            color,
+            crew,
+            isFriend,
+            jobPoints,
+            jobPointsDisplayType,
+            mugshot,
+            mugshotOverlayText,
+            rank,
+            rankIcon,
+        };
+
+        await this.updateUi();
     }
 }

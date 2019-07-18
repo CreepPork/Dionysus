@@ -26,16 +26,22 @@ class Server {
             const steamId = Player.getSteamId(GetPlayerIdentifier(sourceId, EPlayerIdentifier.steamHex));
             const steamName = GetPlayerName(sourceId);
 
-            if (! await Player.isCreated(steamId)) {
-                await Player.create({
-                    born_at: '2019-07-17',
-                    first_name: 'First',
-                    last_name: 'Last',
-                    money_bank: 0,
-                    money_cash: 0,
-                    person_code: '000000-00000',
-                    steam_id: steamId,
-                    steam_name: steamName,
+            try {
+                if (! await Player.isCreated(steamId)) {
+                    await Player.create({
+                        born_at: '2019-07-17',
+                        first_name: 'First',
+                        last_name: 'Last',
+                        money_bank: 0,
+                        money_cash: 0,
+                        person_code: '000000-00000',
+                        steam_id: steamId,
+                        steam_name: steamName,
+                    });
+                }
+            } catch (error) {
+                setImmediate(() => {
+                    emitNet('dionysus:server_axiosFailure', sourceId, error.message);
                 });
             }
         });

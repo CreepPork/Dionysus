@@ -1,3 +1,6 @@
+import * as Cfx from 'fivem-js';
+
+import { AxiosError } from 'axios';
 import Commands from './classes/Commands';
 import DeathManager from './classes/DeathManager';
 import Scoreboard from './classes/Scoreboard';
@@ -10,6 +13,8 @@ class Client {
         on('baseevents:onPlayerKilled', this.onPlayerWasted);
         on('baseevents:onPlayerDied', this.onPlayerWasted);
         on('baseevents:onPlayerWasted', this.onPlayerWasted);
+
+        onNet('dionysus:server_axiosFailure', this.onAxiosFailure);
 
         if (process.env.NODE_ENV === 'development') {
             Commands.Register();
@@ -31,6 +36,10 @@ class Client {
 
     private onPlayerWasted() {
         DeathManager.died();
+    }
+
+    private onAxiosFailure(error: string) {
+        Cfx.Screen.showNotification(`~r~Failed to connect to Dionysus API server.\n${error}`);
     }
 }
 

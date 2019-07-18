@@ -12,7 +12,7 @@ export default class Scoreboard {
     private maxClients: number = parseInt(GetConvar('sv_maxClients', '32'), 10);
 
     private ui?: Cfx.Scaleform;
-    private uiInitalized = false;
+    private uiInitialized = false;
     private uiRows: IScoreboardRow[] = [];
     private uiCurrentPage = 1;
     private uiMugshotCache: string[] = [];
@@ -58,8 +58,8 @@ export default class Scoreboard {
     }
 
     private async draw() {
-        if (! this.uiInitalized) {
-            this.uiInitalized = true;
+        if (! this.uiInitialized) {
+            this.uiInitialized = true;
 
             await this.loadUi();
         }

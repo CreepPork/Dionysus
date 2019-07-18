@@ -1,6 +1,6 @@
-import Commands from './commands';
-import DeathManager from './deathManager';
-import Scoreboard from './scoreboard/scoreboard';
+import Commands from './classes/Commands';
+import DeathManager from './classes/DeathManager';
+import Scoreboard from './classes/Scoreboard';
 
 class Client {
     constructor() {

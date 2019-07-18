@@ -1,0 +1,16 @@
+export enum EScoreboardRankIcon {
+    None,
+    ActiveHeadset = 47,
+    InactiveHeadset,
+    MutedHeadset,
+    Kick = 64,
+    RankFreemode,
+    Spectator,
+    LobbyDriver = 79,
+    LobbyCoDriver,
+    Bounty = 115,
+    Dead,
+    GangCEO = 121,
+    GangBiker,
+    GangDownTarget,
+}

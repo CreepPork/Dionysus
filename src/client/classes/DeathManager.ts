@@ -1,6 +1,6 @@
 import * as Cfx from 'fivem-js';
 
-import delay from '../shared/delay';
+import Delay from '../../shared/utilities/Delay';
 
 export default class DeathManager {
     public static async died() {
@@ -14,7 +14,7 @@ export default class DeathManager {
         const scaleform = new Cfx.Scaleform('mp_big_message_freemode');
 
         while (scaleform.IsLoaded === false) {
-            await delay(1);
+            await Delay(1);
         }
 
         scaleform.callFunction('SHOW_SHARD_WASTED_MP_MESSAGE', [
@@ -28,7 +28,7 @@ export default class DeathManager {
         while (Cfx.Game.Player.Character.isDead()) {
             scaleform.render2D();
 
-            await delay(1);
+            await Delay(1);
         }
 
         scaleform.dispose();

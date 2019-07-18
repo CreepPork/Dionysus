@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import './bootstrap';
+import './Bootstrap';
 
 Vue.use(VueRouter);
 

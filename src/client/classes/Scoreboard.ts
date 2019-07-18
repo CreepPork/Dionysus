@@ -1,6 +1,10 @@
+import { EScoreboardDisplayType } from '../enums/EScoreboardDisplayType';
+import { EScoreboardRankIcon } from '../enums/EScoreboardRankIcon';
+import IScoreboardRow from '../interfaces/IScoreboardRow';
+
 import * as Cfx from 'fivem-js';
-import delay from '../../shared/delay';
-import Scaleform from '../scaleform';
+import Delay from '../../shared/utilities/Delay';
+import Scaleform from '../utilities/Scaleform';
 
 export default class Scoreboard {
     private maxClients: number = parseInt(GetConvar('sv_maxClients', '32'), 10);
@@ -33,7 +37,7 @@ export default class Scoreboard {
             const timer = GetGameTimer();
 
             while (GetGameTimer() - timer < 8000) {
-                await delay(1);
+                await Delay(1);
 
                 if (Cfx.Game.isControlJustPressed(0, Cfx.Control.MultiplayerInfo)) {
                     break;
@@ -67,7 +71,7 @@ export default class Scoreboard {
         const mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
 
         while (! IsPedheadshotReady(mugshotHandle) || ! IsPedheadshotValid(mugshotHandle)) {
-            await delay(1);
+            await Delay(1);
         }
 
         return GetPedheadshotTxdString(mugshotHandle) || '';
@@ -78,7 +82,7 @@ export default class Scoreboard {
             this.uiMugshotCache[id] = await this.getMugshot(id);
         });
 
-        await delay(1000);
+        await Delay(1000);
     }
 
     private cleanMugshots() {
@@ -150,7 +154,7 @@ export default class Scoreboard {
         this.ui = new Scaleform('MP_MM_CARD_FREEMODE');
 
         while (this.ui.IsLoaded === false) {
-            await delay(1);
+            await Delay(1);
         }
 
         this.ui.callFunction('SET_TITLE', [
@@ -168,40 +172,4 @@ export default class Scoreboard {
         // It requires 3 characters to display the actual value
         return `   ${crew}`;
     }
-}
-
-interface IScoreboardRow {
-    color: number;
-    friendType: string;
-    mugshotOverlayText: string;
-    mugshot: string;
-    name: string;
-    crew: string;
-    jobPointsDisplayType: EScoreboardDisplayType;
-    jobPoints: number;
-    rankIcon: EScoreboardRankIcon;
-    rank: number;
-}
-
-enum EScoreboardDisplayType {
-    NumberOnly,
-    Icon,
-    None,
-}
-
-enum EScoreboardRankIcon {
-    None,
-    ActiveHeadset = 47,
-    InactiveHeadset,
-    MutedHeadset,
-    Kick = 64,
-    RankFreemode,
-    Spectator,
-    LobbyDriver = 79,
-    LobbyCoDriver,
-    Bounty = 115,
-    Dead,
-    GangCEO = 121,
-    GangBiker,
-    GangDownTarget,
 }

@@ -3,7 +3,7 @@ import { EScoreboardRankIcon } from '../enums/EScoreboardRankIcon';
 
 export default interface IScoreboardRow {
     color: number;
-    friendType: string;
+    isFriend: boolean;
     mugshotOverlayText: string;
     mugshot: string;
     name: string;

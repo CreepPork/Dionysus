@@ -1,6 +1,5 @@
 import * as Cfx from 'fivem-js';
 
-import { AxiosError } from 'axios';
 import Commands from './classes/Commands';
 import DeathManager from './classes/DeathManager';
 import Scoreboard from './classes/Scoreboard';
@@ -39,7 +38,7 @@ class Client {
     }
 
     private onAxiosFailure(error: string) {
-        Cfx.Screen.showNotification(`~r~Failed to connect to Dionysus API server.\n${error}`);
+        Cfx.Screen.showNotification(`~y~Error from Dionysus API:~r~\n${error}`);
     }
 }
 

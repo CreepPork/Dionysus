@@ -1,68 +1,80 @@
 import { EScoreboardDisplayType } from '../enums/EScoreboardDisplayType';
 import { EScoreboardRankIcon } from '../enums/EScoreboardRankIcon';
+import { EScriptGfxAlignHorizontal } from '../enums/EScriptGfxAlignHorizontal';
+import { EScriptGfxAlignVertical } from '../enums/EScriptGfxAlignVertical';
 import IScoreboardRow from '../interfaces/IScoreboardRow';
 
-import * as Cfx from 'fivem-js';
 import Delay from '../../shared/utilities/Delay';
-import Scaleform from '../utilities/Scaleform';
+
+import * as Cfx from 'fivem-js';
 
 export default class Scoreboard {
     private maxClients: number = parseInt(GetConvar('sv_maxClients', '32'), 10);
 
-    private ui?: Scaleform;
+    private ui?: Cfx.Scaleform;
     private uiInitalized = false;
     private uiRows: IScoreboardRow[] = [];
-    private uiPage = 0;
-    private uiIsVisible = false;
+    private uiCurrentPage = 1;
     private uiMugshotCache: string[] = [];
+    private uiIsGeneratingMugshots = false;
 
-    private change = (GetSafeZoneSize() - 0.89) / 0.11;
-
-    private x = 50 - this.change * 78;
-    private y = 50 - this.change * 50;
-    private width = 400;
-    private height = 490;
+    private get uiMaxPages(): number {
+        return Math.ceil((GetActivePlayers() as number[]).length / 16);
+    }
 
     constructor() {
         setTick(() => this.controller());
-        setTick(() => this.draw());
-
-        setTick(() => this.updateMugshots());
     }
 
     private async controller() {
         if (Cfx.Game.isControlJustPressed(0, Cfx.Control.MultiplayerInfo)) {
-            this.uiIsVisible = ! this.uiIsVisible;
+            this.updateMugshots();
 
-            const timer = GetGameTimer();
+            let timer = GetGameTimer();
 
             while (GetGameTimer() - timer < 8000) {
                 await Delay(1);
 
+                this.draw();
+
                 if (Cfx.Game.isControlJustPressed(0, Cfx.Control.MultiplayerInfo)) {
-                    break;
+                    if (this.uiCurrentPage === this.uiMaxPages) {
+                        break;
+                    } else {
+                        this.uiCurrentPage++;
+                        timer = GetGameTimer();
+                        this.updateUiTitle();
+                        this.updateUi();
+                    }
                 }
             }
 
-            this.uiIsVisible = ! this.uiIsVisible;
+            // Prevent the user seeing for a split second the page number change when it is being closed
+            await Delay(1);
+            this.uiCurrentPage = 1;
+            this.updateUiTitle();
+            this.updateUi();
         }
     }
 
     private async draw() {
-        if (this.uiIsVisible) {
-            if (! this.uiInitalized) {
-                await this.loadUi();
+        if (! this.uiInitalized) {
+            this.uiInitalized = true;
 
-                this.uiInitalized = true;
-            }
+            await this.loadUi();
+        }
 
-            if (this.ui) {
-                if (this.ui.IsLoaded) {
-                    this.ui.render2DScreenSpace(
-                        new Cfx.PointF(this.x, this.y, 0),
-                        new Cfx.PointF(this.width, this.height, 0),
-                    );
-                }
+        if (this.ui) {
+            if (this.ui.IsLoaded) {
+                SetScriptGfxAlign(EScriptGfxAlignHorizontal.Left, EScriptGfxAlignVertical.Top);
+                SetScriptGfxDrawOrder(7);
+
+                this.ui.render2DScreenSpace(
+                    new Cfx.PointF(-0.018, 0, 0),
+                    new Cfx.PointF(0.28, 0.6, 0),
+                );
+
+                SetScriptGfxDrawOrder(4);
             }
         }
     }
@@ -71,64 +83,69 @@ export default class Scoreboard {
         const mugshotHandle = RegisterPedheadshot(GetPlayerPed(handle));
 
         while (! IsPedheadshotReady(mugshotHandle) || ! IsPedheadshotValid(mugshotHandle)) {
-            await Delay(1);
+            await Delay(1000);
         }
 
-        return GetPedheadshotTxdString(mugshotHandle) || '';
+        return GetPedheadshotTxdString(mugshotHandle);
     }
 
     private async updateMugshots() {
+        if (this.uiIsGeneratingMugshots) { return; }
+        this.uiIsGeneratingMugshots = true;
+
         GetActivePlayers().forEach(async (id: number) => {
             this.uiMugshotCache[id] = await this.getMugshot(id);
+
+            // Emit event for that index to update it's mugshot
         });
 
-        await Delay(1000);
+        await Delay(60 * 1000);
+        this.uiIsGeneratingMugshots = false;
     }
 
     private cleanMugshots() {
         for (let i = 0; i < this.maxClients; i++) {
-            if (IsPedheadshotValid(i)) {
-                UnregisterPedheadshot(i);
-            }
+            UnregisterPedheadshot(i);
         }
     }
 
-    private async clearUi() {
+    private clearUi() {
         if (this.ui) {
-            for (let i = 0; i < this.maxClients * 2; i++) {
+            this.uiRows = [];
+
+            for (let i = 0; i < this.maxClients; i++) {
                 this.ui.callFunction('SET_DATA_SLOT_EMPTY', [i]);
             }
         }
     }
 
     private async updateUi() {
-        this.cleanMugshots();
+        console.log(this.uiCurrentPage);
+        this.clearUi();
 
-        GetActivePlayers().forEach(async (id: number) => {
-            const config: IScoreboardRow = {
+        for (const [i, id] of GetActivePlayers().entries()) {
+            const row: IScoreboardRow = {
                 color: 111,
-                crew: this.getCrew('crew'),
-                friendType: '',
+                crew: `   crew`,
+                isFriend: true,
                 jobPoints: 3,
                 jobPointsDisplayType: EScoreboardDisplayType.Icon,
                 mugshot: this.uiMugshotCache[id] || '',
                 mugshotOverlayText: '',
+                // ToDo: Trim special characters <> ~r~ etc.
                 name: GetPlayerName(id),
                 rank: GetPlayerServerId(id),
                 rankIcon: EScoreboardRankIcon.RankFreemode,
             };
 
-            this.uiRows.push(config);
-        });
+            this.uiRows.push(row);
 
-        await this.clearUi();
-
-        for (const [i, row] of this.uiRows.entries()) {
             if (this.ui) {
+                // Handle page switching
                 this.ui.callFunction('SET_DATA_SLOT', [
-                    i,
+                    i - ((this.uiCurrentPage - 1) * 16),
                     row.rank,
-                    row.name,
+                    `${row.name}${i + 1}`,
                     row.color,
                     row.rankIcon,
                     row.mugshotOverlayText,
@@ -137,39 +154,34 @@ export default class Scoreboard {
                     row.jobPointsDisplayType,
                     row.mugshot,
                     row.mugshot,
-                    row.friendType,
+                    row.isFriend ? 'F' : '',
                 ]);
             }
+        }
+
+        if (this.ui) {
+            this.ui.callFunction('DISPLAY_VIEW', []);
         }
     }
 
     private async loadUi() {
-        if (this.ui) {
-            this.clearUi();
-
-            this.ui.dispose();
-            this.ui = undefined;
-        }
-
-        this.ui = new Scaleform('MP_MM_CARD_FREEMODE');
+        this.ui = new Cfx.Scaleform('MP_MM_CARD_FREEMODE');
 
         while (this.ui.IsLoaded === false) {
-            await Delay(1);
+            await Delay(50);
         }
 
-        this.ui.callFunction('SET_TITLE', [
-            'FiveM',
-            `Players ${NetworkGetNumConnectedPlayers()}/${this.maxClients}`,
-            2,
-        ]);
-
+        this.cleanMugshots();
+        this.updateUiTitle();
         await this.updateUi();
-
-        this.ui.callFunction('DISPLAY_VIEW', []);
     }
 
-    private getCrew(crew: string): string {
-        // It requires 3 characters to display the actual value
-        return `   ${crew}`;
+    private updateUiTitle() {
+        if (this.ui) {
+            this.ui.callFunction('SET_TITLE', [
+                `Players ${NetworkGetNumConnectedPlayers()}/${this.maxClients}`,
+                `${this.uiCurrentPage}/${this.uiMaxPages}`,
+            ]);
+        }
     }
 }

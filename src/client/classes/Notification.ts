@@ -5,15 +5,15 @@ import { EDialogKeyType } from '../enums/EDialogKeyType';
 import { EInstructionalButtonType } from '../enums/EInstructionalButtonType';
 
 export default class Notification {
-    public static DisplayHelp() {
+    public static displayHelp() {
         //
     }
 
-    public static DisplayNotification() {
+    public static displayNotification() {
         //
     }
 
-    public static DisplaySubtitle() {
+    public static displaySubtitle() {
         //
     }
 
@@ -30,7 +30,7 @@ export default class Notification {
      * @param isCancelAllowed Defines if the user can press FrontendCancel to close the display.
      * @param keyPressCallback Once the key gets pressed or the user interacts with one of the controls then execute.
      */
-    public static async DisplayWarning(
+    public static async displayWarning(
         firstLine: string,
         secondLine = '',
         key: EInstructionalButtonType,
@@ -40,11 +40,13 @@ export default class Notification {
         // tslint:disable-next-line: no-empty
         keyPressCallback: (key: EDialogKeyType) => void = () => {},
     ) {
+        AddTextEntry('warning_message_line_1', firstLine);
+        AddTextEntry('warning_message_line_2', secondLine);
 
         while (true) {
             await Delay(5);
 
-            SetWarningMessage(firstLine, key, secondLine, false, -1, true, 0);
+            SetWarningMessage('warning_message_line_1', key, 'warning_message_line_2', false, -1, true, 0);
 
             if (isSelectedAllowed) {
                 if (Cfx.Game.isControlJustReleased(2, Cfx.Control.FrontendAccept) ||

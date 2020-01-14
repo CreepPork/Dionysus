@@ -41,7 +41,7 @@
     "lodash": "^4.17.14",
     "popper.js": "^1.15.0",
     "sass": "^1.22.5",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0.2",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3",

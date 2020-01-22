@@ -43,7 +43,7 @@
     "sass": "^1.22.5",
     "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.4",
-    "tslint": "^5.18.0",
+    "tslint": "^6.0.0",
     "typescript": "^3.5.3",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
